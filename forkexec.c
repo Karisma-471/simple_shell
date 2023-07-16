@@ -1,7 +1,7 @@
 #include "shell_main.h"
 /**
   * forkexec - A program that executes command in child process
-  * @args: Array of characters
+  * @args: Array of characters to be used
   * Return: 1 on success
   * prints out error to stderr if process fails
   */
