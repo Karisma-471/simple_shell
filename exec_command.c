@@ -10,7 +10,6 @@ void execute_command(char **arguments)
 {
 	int result = 0;
 	int status;
-	extern char **environ;
 	char *executable;
 	pid_t pid;
 

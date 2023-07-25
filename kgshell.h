@@ -26,5 +26,6 @@ char **parse_command(char *command);
 char *find_executable(char *command);
 void handle_redirection(char **arguments);
 void handle_pipes(char **arguments);
+extern char **environ;
 
 #endif

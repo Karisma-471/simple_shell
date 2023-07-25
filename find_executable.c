@@ -15,7 +15,7 @@ char *find_executable(char *command)
 	{
 		if (s.st_mode & S_IXUSR)
 		{
-			return (strdup(command));
+			return (_strdup(command));
 		}
 	}
 

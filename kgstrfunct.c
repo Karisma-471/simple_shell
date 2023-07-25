@@ -41,3 +41,34 @@ int _strcmp(char *string1, char *string2)
 
 	return (0);
 }
+
+/**
+ * _strdup - Duplicates a string
+ * @s: this is the string that will be copied
+ * Return: this returns a pointer to the newly allocated string
+ * OR NULL if there's insufficient space
+ */
+char *_strdup(char *s)
+{
+	char *copy;
+	int len = _strlen(s), i;
+
+	if (s == NULL)
+	{
+		return (NULL);
+	}
+
+	copy = malloc(sizeof(char) * (len + 1));
+	if (copy == NULL)
+	{
+		return (NULL);
+	}
+
+	for (i = 0; i < len; i++)
+	{
+		copy[i] = s[i];
+	}
+	copy[len] = '\0';
+
+	return (copy);
+}
