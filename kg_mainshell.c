@@ -7,8 +7,8 @@ int main(void)
 {
 	char *command, **arguments;
 
-	welcome();
-	_printf("\n", "");
+	/*welcome();*/
+	/*_printf("\n", "");*/
 	while (1)
 	{
 		_printf("KARISMA_G$: ", "");
@@ -42,6 +42,6 @@ int main(void)
 		free(command);
 		free(arguments);
 	}
-	goodbye();
+	/*goodbye();*/
 	return (0);
 }
