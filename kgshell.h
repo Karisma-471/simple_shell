@@ -20,6 +20,7 @@ void goodbye(void);
 void _printf(char *format, char *replace);
 int _strlen(char *string);
 int _strcmp(char *string1, char *string2);
+char *_strdup(char *s);
 void execute_command(char **arguments);
 char *read_command();
 char **parse_command(char *command);

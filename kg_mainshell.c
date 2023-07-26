@@ -1,23 +1,17 @@
-#include "kg_mainshell.c"
-
+#include "kgshell.h"
 /**
 * main - build a simple shell that takes in prompts
-* @argc: argument count to be used
-* @argv: argument array to be used
 * Return: 0 on success
 */
-int main(int argc, char **argv)
+int main(void)
 {
 	char *command, **arguments;
-	int status = 1;
 
 	welcome();
 	_printf("\n", "");
-
-	while (status)
+	while (1)
 	{
 		_printf("KARISMA_G$: ", "");
-
 		command = read_command();
 		if (command[0] == '\0')
 		{

@@ -8,23 +8,21 @@
 */
 char *find_executable(char *command)
 {
-	char *dir;
+	char *dir, *path, *executable;
 	struct stat s;
 	/* Check if command is absolute or relative path */
 	if (stat(command, &s) == 0)
 	{
 		if (s.st_mode & S_IXUSR)
-		{
-			return (_strdup(command));
-		}
+			return (command);
 	}
 
 	/* Check if the command is in PATH environment variable */
-	char *path = getenv("PATH");
+	path = getenv("PATH");
 
 	if (path == NULL)
 	{
-		return (NULL);
+		return ('\0');
 	}
 
 	/* tokenize the directory string out of the PATH=value*/
@@ -33,21 +31,19 @@ char *find_executable(char *command)
 	while (dir != NULL)
 	{
 		/* +2 for '/' and null terminator */
-		char *executable = malloc(_strlen(dir) + _strlen(command) + 2);
+		executable = (char *)malloc(_strlen(dir) + _strlen(command) + 2);
 		/* TODO: write the data to executable using a loop */
 		sprintf(executable, "%s/%s", dir, command);
 		/* checks if the current dir tokenized matches the command*/
 		if (stat(executable, &s) == 0)
 		{
 			if (s.st_mode & S_IXUSR)
-			{
 				return (executable);
-			}
 		}
 
 		free(executable);
 		dir = strtok(NULL, ":");
 	}
 
-	return (NULL);
+	return (executable);
 }

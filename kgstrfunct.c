@@ -36,7 +36,7 @@ int _strcmp(char *string1, char *string2)
 	{
 		if (string1[count] != string2[count])
 			return (0);
-			count++;
+		count++;
 	}
 
 	return (0);
@@ -55,13 +55,13 @@ char *_strdup(char *s)
 
 	if (s == NULL)
 	{
-		return (NULL);
+		return ('\0');
 	}
 
 	copy = malloc(sizeof(char) * (len + 1));
 	if (copy == NULL)
 	{
-		return (NULL);
+		return ('\0');
 	}
 
 	for (i = 0; i < len; i++)
