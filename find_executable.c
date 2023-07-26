@@ -14,16 +14,14 @@ char *find_executable(char *command)
 	if (stat(command, &s) == 0)
 	{
 		if (s.st_mode & S_IXUSR)
-			return (command);
+			return (_strdup(command));
 	}
 
 	/* Check if the command is in PATH environment variable */
 	path = getenv("PATH");
 
 	if (path == NULL)
-	{
 		return ('\0');
-	}
 
 	/* tokenize the directory string out of the PATH=value*/
 	dir = strtok(path, ":");

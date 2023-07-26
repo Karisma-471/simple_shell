@@ -1,18 +1,18 @@
 #include "kgshell.h"
 
 /**
-* parse_command - a function that tokenizes a command string into array
-* of strings
-* @command: the command string to be parsed
-*
-* Return: An array of strings
-*/
+ * parse_command - a function that tokenizes a command string into array
+ * of strings
+ * @command: the command string to be parsed
+ *
+ * Return: An array of strings
+ */
 char **parse_command(char *command)
 {
-	int count = 0;
+	int count = 0, bufsize = _strlen(command);
 	char *token;
 	/* allocates memory for the array of strings holding the commands*/
-	char **tokens = malloc(_strlen(command) * sizeof(char *));
+	char **tokens = malloc(bufsize * sizeof(char *));
 	/* check if malloc allocated correctly */
 	if (!tokens)
 	{
@@ -25,10 +25,22 @@ char **parse_command(char *command)
 
 	while (token != NULL)
 	{
-		tokens[count] = token;
-		count++;
+		tokens[count++] = token;
+
+		if (count >= bufsize)
+		{
+			bufsize += MAX_ARGUMENTS;
+			tokens = realloc(tokens, bufsize * sizeof(char *));
+			if (!tokens)
+			{
+				perror("realloc");
+				exit(EXIT_FAILURE);
+			}
+		}
+
 		token = strtok(NULL, DELIM);
 	}
+
 	tokens[count] = NULL;
 
 	return (tokens);
