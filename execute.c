@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * execute_command -  a function to execute a command
+ * exec_command -  a function to execute a command
  * Return: the status of the command executed
  */
 int exec_command(void)

@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * findpath - searches through the directories to find a command
+ * find_path - searches through the directories to find a command
  * Return: absolute path to the command if found, else NULL
  */
 char *find_path(void)

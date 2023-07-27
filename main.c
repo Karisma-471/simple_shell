@@ -17,13 +17,13 @@ int main(int argc, char *argv[])
 	{
 		/* print teh prompt */
 		print_prompt("karismaG$: ");
-		
+
 		/* get the arguments from stdin */
 		_get_line(&line);
 
 		/* tokenize the commands */
 		command = _strtok(line, ' ');
-		
+
 		/* execute the command */
 		status = exec_command();
 

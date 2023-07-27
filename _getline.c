@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _getline - gets string from statndard input and stores in a buffer
+ * _get_line - gets string from statndard input and stores in a buffer
  * @line: buffer for the string to be stored
  * Return: number of characters read, if errror returns -1;
  */
