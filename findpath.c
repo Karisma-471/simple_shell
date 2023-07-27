@@ -29,7 +29,8 @@ char *find_path(void)
 
 		if (access(abs_path, F_OK) == 0)
 		{
-			free_array(path_dir);
+			free(abs_path);
+			free(path_dir);
 			return (abs_path);
 		}
 		free(abs_path);

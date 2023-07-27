@@ -17,11 +17,15 @@ int exec_command(void)
 		{
 			pid = fork();
 			if (pid == -1)
+			{
 				return (0);
+			}
 			else if (pid == 0)
 			{
 				execve(command_path, command, environ);
 				perror("execve");
+				free_array(command);
+				free(command_path);
 				exit(EXIT_FAILURE);
 			}
 			else
@@ -34,11 +38,11 @@ int exec_command(void)
 		else
 		{
 			_fprintf(2, "%a: %b: %c: not found\n", shell, shell_index, command[0]);
+			/* added here */
+			free(command_path);
 			return (127);
 		}
-		free(command_path);
 	}
 
 	return (status);
 }
-

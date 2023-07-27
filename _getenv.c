@@ -15,6 +15,7 @@ char **_getenv(char *var)
 		variable = _strtok(environ[count], '=');
 		if (!_strcmp(variable[0], var))
 		{
+			free_array(variable);
 			return (variable);
 		}
 		free_array(variable);

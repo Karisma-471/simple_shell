@@ -13,8 +13,7 @@ char **_strtok(char *str, char delim)
 	char **arr = (char **)malloc(sizeof(char *) * (str_len + 1));
 	char *buf = (char *)malloc(sizeof(char) * (str_len + 1));
 
-
-	for ( ; i < str_len + 1; i++)
+	for (; i < str_len + 1; i++)
 	{
 		if (str[i] != delim && str[i] != '\0')
 		{
@@ -36,9 +35,9 @@ char **_strtok(char *str, char delim)
 
 	arr[j] = NULL;
 	free(buf);
-
-	return (arr);
+	return arr;
 }
+
 
 /**
  * _strncmp - compares 2 strings till n char

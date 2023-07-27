@@ -16,7 +16,9 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 
 	arr = malloc(nmemb * size);
 	if (!arr)
+	{
 		return (NULL);
+	}
 
 	for (count = 0; count < (nmemb * size); count++)
 		((char *) (arr))[count] = 0;

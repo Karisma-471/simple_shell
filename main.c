@@ -19,7 +19,11 @@ int main(int argc, char *argv[])
 		print_prompt("karismaG$: ");
 
 		/* get the arguments from stdin */
-		_get_line(&line);
+		if (_get_line(&line) == -1)
+		{
+			free(line);
+			free_array(command);
+		}
 
 		/* tokenize the commands */
 		command = _strtok(line, ' ');
@@ -27,10 +31,12 @@ int main(int argc, char *argv[])
 		/* execute the command */
 		status = exec_command();
 
-		/* free all the memory used */
 		free(line);
 		free_array(command);
 	}
+
+	free(line);
+	free_array(command);
 
 	return (status);
 }

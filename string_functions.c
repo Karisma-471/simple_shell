@@ -58,7 +58,11 @@ char *_strdup(char *str)
 
 	ptr_alloc = malloc(sizeof(char) * len + 1);
 	if (!ptr_alloc)
+	{
+		/*added */
+		/*free(ptr_alloc);*/
 		return (NULL);
+	}
 
 	ptr_alloc_char = ptr_alloc;
 
@@ -69,6 +73,8 @@ char *_strdup(char *str)
 		ptr_alloc_char++;
 	}
 	*ptr_alloc_char = '\0';
+	/* added */
+	free(ptr_alloc);
 	return (ptr_alloc);
 }
 
@@ -91,7 +97,7 @@ int _strcmp(char *s1, char *s2)
 }
 
 /**
- * _strlen - returns the lenth of a string
+ * _strlen - return the lenth of a string
  * @s: Paremeter to count
  * Return: length.
  */
